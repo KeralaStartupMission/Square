@@ -1,6 +1,6 @@
 # Square
 
-Simple programming exercise for teaching programming.
+Simple set of exercises for teaching programming.
 
 ## Instruction
 
