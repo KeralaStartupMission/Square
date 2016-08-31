@@ -1,35 +1,37 @@
-//Code Compile and Run by codechef IDE
+/* Program to illustrate drawing of a Square using Object and Class in C++ Programming */
 
 #include <iostream>
 using namespace std;
-
-int main() 
+class square
 {
-  int size;
-  cout << "Enter Box Size\n";
-  cin >> size;
-
-  for(int col=0;col<size;++col)
-    {
-      cout << "#";
-    }
-  if(size > 1) 
-    {
-      cout << "\n";
-    for(int row=0;row<size-2;++row)
-      {
-        cout<< "#";
-        for(int col=0;col<size-2;++col)
-          {
+    private:
+        int side,column,row;
+    public:
+       void square_data(){
+         cout << "Enter side of Square\n";
+         cin >> side;
+         top_bottom();
+         if(side > 1){
+          cout << "\n";
+          left_right();
+          top_bottom();
+         }
+        }
+       void top_bottom(){
+          for(column=0; column<side; ++column)
+            cout << "#";
+         }
+        void left_right(){
+          for(row = 0; row < side-2; ++row){
+            cout << "#";
+          for(column=0; column <side-2; ++column)
             cout << " ";
-          }
-        cout<<"#\n";
-      }
-    for(int col=0;col<size;++col)
-      {
-        cout << "#";
-      }		
-    }
-  return 0;
-}
-
+          cout << "#\n";
+         }
+        }
+};
+ int main(){
+      square obj;
+      obj.square_data();
+      return 0;
+ }
