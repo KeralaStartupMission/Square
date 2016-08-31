@@ -17,7 +17,7 @@ class Square
   def generate
     first_last_line
 
-    unless @side <= 2
+    unless @side < 2
       middle_line
       first_last_line
     end
@@ -26,4 +26,4 @@ class Square
 end
 print 'Enter the side length:'
 side = gets.to_i
-Square.new(side).generate.to_s
+Square.new(side).generate
