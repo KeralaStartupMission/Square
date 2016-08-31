@@ -26,5 +26,4 @@ class Square
 end
 print 'Enter the side length:'
 side = gets.to_i
-square = Square.new(side)
-square.generate.to_s
+Square.new(side).generate.to_s
