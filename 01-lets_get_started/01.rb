@@ -16,11 +16,13 @@ class Square
 
   def generate
     first_last_line
+
     unless @side <= 2
       middle_line
       first_last_line
     end
   end
+
 end
 print 'Enter the side length:'
 side = gets.to_i
