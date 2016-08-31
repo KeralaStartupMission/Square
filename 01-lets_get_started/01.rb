@@ -2,7 +2,7 @@
 class Square
   def initialize(side)
     @side = side
-    @count = side - 2
+    @gap_length = side - 2
   end
 
   def first_last_line(side)
@@ -11,7 +11,7 @@ class Square
   end
 
   def middle_line
-    @count.times { puts '#' + ' ' * @count + '#' }
+    @gap_length.times { puts '#' + ' ' * @gap_length + '#' }
   end
 
   def generate(side)
