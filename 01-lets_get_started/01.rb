@@ -5,8 +5,8 @@ class Square
     @gap_length = side - 2
   end
 
-  def first_last_line(side)
-    side.times { print '#' }
+  def first_last_line
+    @side.times { print '#' }
     print "\n"
   end
 
@@ -14,15 +14,15 @@ class Square
     @gap_length.times { puts '#' + ' ' * @gap_length + '#' }
   end
 
-  def generate(side)
-    first_last_line(side)
-    unless side <= 2
+  def generate
+    first_last_line
+    unless @side <= 2
       middle_line
-      first_last_line(side)
+      first_last_line
     end
   end
 end
 print 'Enter the side length:'
 side = gets.to_i
 square = Square.new(side)
-square.generate(side).to_s
+square.generate.to_s
