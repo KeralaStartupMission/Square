@@ -22,8 +22,10 @@ class Square
       first_last_line
     end
   end
-
 end
+
 print 'Enter the side length:'
 side = gets.to_i
-Square.new(side).generate
+Square
+  .new(side)
+  .generate
