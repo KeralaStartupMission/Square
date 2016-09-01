@@ -5,22 +5,21 @@ class Square
     @gap_length = side - 2
   end
 
-  def first_last_line
+  def print_first_last_line
     @side.times { print '#' }
     print "\n"
   end
 
-  def middle_line
+  def print_middle_lines
     @gap_length.times { puts '#' + ' ' * @gap_length + '#' }
   end
 
   def generate
-    first_last_line
+    print_first_last_line
 
-    unless @side < 2
-      middle_line
-      first_last_line
-    end
+    return if @side < 2
+        print_middle_lines
+        print_first_last_line
   end
 end
 
