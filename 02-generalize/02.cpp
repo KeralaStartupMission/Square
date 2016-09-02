@@ -4,20 +4,19 @@
 #include <iostream>
 using namespace std;
 
-class square
+class Square
 {
+
 private:
-  int side,column,row;
-  char character;
+  int column,row,side;
+  char symbol;
+
 public:
-  void square_data()
+  void square_generate(char function_symbol,int function_side)
   {
-    cout << "Enter character to print\n";
-    cin >> character;
-    cout << "Enter side of Square\n";
-    cin >> side;
-    
-    
+    symbol = function_symbol;
+    side = function_side;
+
     if(cin)
     {
       try
@@ -25,50 +24,58 @@ public:
         if(side < 1)
         throw side;
         else if(side == 1)
-        top_bottom(side);
-        else 
+        top_bottomSide(side);
+        else
         square_draw(side);
       }
-      
-      catch(int exp)
+
+      catch(int errorVariable)
       {
-        cerr << "Sorry! Expected Positive Integer Value For Box Side!\n";
+        cerr << "Error: Expected Positive Integer Value For Box Side!\n";
         square_draw(3);
       }
     }
     else
-    cerr << "Please Confirm Both Values Are Inserted or Wrong Data!";
+    cerr << "Error: Confirm Both Values Are Inserted or Wrong Data!";
   }
-  
-  void top_bottom(int var1)
+
+  void top_bottomSide(int temporary_variable)
   {
-    for(column = 0; column < var1; ++column)
-    cout << character;
+    for(column = 1; column <= temporary_variable; column++)
+    cout << symbol;
+    cout << "\n";
   }
-  
-  void left_right(int var2)
+
+  void left_rightSide(int temporary_variable)
   {
-    for(row = 0; row < var2-2; ++row)
+    for(row = 1; row <= temporary_variable-2; row++)
     {
-      cout << character;
-      for(column=0; column < var2-2; ++column)
+      cout << symbol;
+      for(column=1; column <= temporary_variable-2; column++)
       cout << " ";
-      cout << character<<"\n";
+      cout << symbol;
+      cout << "\n";
     }
   }
-  
-  void square_draw(int var3)
+
+  void square_draw(int draw_variable)
   {
-    top_bottom(var3);
-    cout << "\n";
-    left_right(var3);
-    top_bottom(var3);   
+    top_bottomSide(draw_variable);
+    left_rightSide(draw_variable);
+    top_bottomSide(draw_variable);
   }
 };
 
 int main()
 {
-  square obj;
-  obj.square_data();
+  int side;
+  char symbol;
+  cout << "Enter Symbol to draw\n";
+  cin >> symbol;
+  cout << "Enter side of Square Box\n";
+  cin >> side;
+  Square obj;
+  obj.square_generate(symbol,side);
   return 0;
 }
+
