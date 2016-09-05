@@ -1,18 +1,16 @@
-/* Program to illustrate drawing of a Square using Object and Class in C++ Programming */
-
+/* Square generating program */
 #include <iostream>
 using namespace std;
 
 class Square
 {
-
 private:
   int column,row,side;
 
 public:
-  void square_generate(int temporary_variable)
+  void square_generate(int temp_side)
   {
-    side = temporary_variable;
+    side = temp_side;
 
     if(cin)
     {
@@ -21,39 +19,39 @@ public:
         if(side < 1)
         throw side;
         else if(side == 1)
-        top_bottomSide(side);
+        top_bottom_side(side);
         else
         square_draw(side);
       }
 
       catch(int errorVariable)
       {
-        cerr << "Error: Expected Positive Integer Value For Box Side!\n";
+        cerr << "Error: Invalid data. Expected positive integer!\n";
       }
     }
     else
     cerr << "Error: Wrong Data!" << endl;
   }
 
-  void top_bottomSide(int temporary_variable)
+  void top_bottom_side(int temp)
   {
-    for(column = 1; column <= temporary_variable; column++)
+    for(column = 1; column <= temp; column++)
     cout << '#';
     cout << "\n";
   }
 
-  void left_rightSide(int temporary_variable)
+  void left_right_side(int temp)
   {
-    for(row = 1; row <= temporary_variable-2; row++)
+    for(row = 1; row <= temp - 2; row++)
     {
       cout << '#';
-      for(column=1; column <= temporary_variable-2; column++)
+      for(column=1; column <= temp - 2; column++)
       cout << " ";
       cout << '#';
       cout << "\n";
     }
   }
-  
+
   void square_draw(int draw_variable)
   {
     top_bottomSide(draw_variable);
@@ -65,9 +63,9 @@ public:
 int main()
 {
   int side;
+  Square square;
   cout << "Enter side of Square Box\n";
   cin >> side;
-  Square obj;
-  obj.square_generate(side);
+  square.square_generate(side);
   return 0;
 }
