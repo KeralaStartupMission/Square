@@ -40,7 +40,9 @@ public:
   void top_bottom_side(int temp)
   {
     for(column = 1; column <= temp; column++)
-    cout << symbol;
+    {
+      cout << symbol;
+    }
     cout << "\n";
   }
 
@@ -50,7 +52,9 @@ public:
     {
       cout << symbol;
       for(column=1; column <= temp - 2; column++)
-      cout << " ";
+      {
+        cout << " ";
+      }
       cout << symbol;
       cout << "\n";
     }
