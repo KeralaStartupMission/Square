@@ -1,17 +1,7 @@
 # To make a empty square
-class Square
+class Square 
   def initialize(side)
     @side = side
-  end
-
-  def print_first_last_line
-    print '#'* @side
-    print "\n"
-  end
-
-  def print_middle_lines
-    @gap_length = side - 2
-    @gap_length.times { puts '#' + ' ' * @gap_length + '#' }
   end
 
   def generate
@@ -20,6 +10,17 @@ class Square
     return if @side < 2
     print_middle_lines
     print_first_last_line
+  end
+
+  private
+  def print_first_last_line
+    print '#'* @side
+    print "\n"
+  end
+
+  def print_middle_lines
+    @gap_length = @side - 2
+    @gap_length.times { puts '#' + ' ' * @gap_length + '#' }
   end
 end
 
