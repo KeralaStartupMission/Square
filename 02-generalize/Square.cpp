@@ -5,9 +5,8 @@ using namespace std;
 
 class Square
 {
-
 private:
-  int column,row,side;
+  int column, row, side;
   char symbol;
 
 public:
@@ -23,14 +22,14 @@ public:
         if(side < 1)
         throw side;
         else if(side == 1)
-        top_bottomSide(side);
+        top_bottom_side(side);
         else
         square_draw(side);
       }
 
       catch(int errorVariable)
       {
-        cerr << "Error: Expected Positive Integer Value For Box Side!\n";
+        cerr << "Error: Invalid Input. Expected Positive Integer!\n";
         square_draw(3);
       }
     }
@@ -38,19 +37,19 @@ public:
     cerr << "Error: Confirm Both Values Are Inserted or Wrong Data!";
   }
 
-  void top_bottomSide(int temporary_variable)
+  void top_bottom_side(int temp)
   {
-    for(column = 1; column <= temporary_variable; column++)
+    for(column = 1; column <= temp; column++)
     cout << symbol;
     cout << "\n";
   }
 
-  void left_rightSide(int temporary_variable)
+  void left_right_side(int temp)
   {
-    for(row = 1; row <= temporary_variable-2; row++)
+    for(row = 1; row <= temp - 2; row++)
     {
       cout << symbol;
-      for(column=1; column <= temporary_variable-2; column++)
+      for(column=1; column <= temp - 2; column++)
       cout << " ";
       cout << symbol;
       cout << "\n";
@@ -59,9 +58,8 @@ public:
 
   void square_draw(int draw_variable)
   {
-    top_bottomSide(draw_variable);
-    left_rightSide(draw_variable);
-    top_bottomSide(draw_variable);
+    top_bottom_side(draw_variable);
+    left_right_side(draw_variable);
+    top_bottom_side(draw_variable);
   }
 };
-
