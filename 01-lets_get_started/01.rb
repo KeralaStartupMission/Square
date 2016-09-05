@@ -1,5 +1,6 @@
 # To make a empty square
-class Square 
+class Square
+  SYMBOL = '#'
   def initialize(side)
     @side = side
   end
@@ -13,19 +14,21 @@ class Square
   end
 
   private
+
   def print_first_last_line
-    print '#'* @side
+    print SYMBOL * @side
     print "\n"
   end
 
   def print_middle_lines
     @gap_length = @side - 2
-    @gap_length.times { puts '#' + ' ' * @gap_length + '#' }
+    @gap_length.times { puts SYMBOL + ' ' * @gap_length + SYMBOL }
   end
 end
 
 print 'side_length:'
 side = gets.to_i
+
 Square
   .new(side)
   .generate
