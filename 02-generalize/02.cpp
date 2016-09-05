@@ -5,7 +5,6 @@
 #include "Square.cpp"
 using namespace std;
 
-
 int main()
 {
   int side;
@@ -14,8 +13,7 @@ int main()
   cin >> symbol;
   cout << "Enter side of Square Box\n";
   cin >> side;
-  Square obj;
-  obj.square_generate(symbol,side);
+  Square square;
+  square.square_generate(symbol,side);
   return 0;
 }
-
