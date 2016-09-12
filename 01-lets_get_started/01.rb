@@ -5,31 +5,42 @@ class Square
   def initialize(side)
     @side = side
     @gap_length = @side - 2
+    @middlelines = []
   end
 
   def generate
-    print_first_last_line
-    return if @side < 2
+    if @gap_length > 0
+      display = [first_last_lines, middle_lines, first_last_lines]
+    elsif @gap_length.zero?
+      display = [first_last_lines, middle_lines]
+    else
+      display = first_last_lines
+    end
+  end
 
-    print_middle_lines
-    print_first_last_line
+  def to_s
+    display
   end
 
   private
 
-  def print_first_last_line
-    print SYMBOL * @side
-    print "\n"
+  def first_last_lines
+    "#{SYMBOL * @side}\n"
   end
 
-  def print_middle_lines
-    @gap_length.times { puts SYMBOL + ' ' * @gap_length + SYMBOL }
+  def middle_lines
+    @rows = 0
+    while @rows <= @gap_length
+      @middlelines[@rows] = SYMBOL + ' ' * @gap_length + SYMBOL
+      @rows += 1
+    end
+    @middlelines
   end
 end
 
 print 'side length:'
 side = gets.to_i
 
-Square
+puts Square
   .new(side)
   .generate
